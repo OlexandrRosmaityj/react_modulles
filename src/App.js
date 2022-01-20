@@ -4,9 +4,10 @@ import Rocets from "./componnents_/Rocets/Rocets";
 
 function App() {
   return (
-      <div>
+      <div className={'rocets'}>
 
 <Rocets/>
+
 
     </div>
   );
