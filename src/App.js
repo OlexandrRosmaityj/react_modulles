@@ -8,10 +8,10 @@ function App() {
   return (
       <div>
         <div className={'div'}>
-          <Users/>
-          <Posts/>
+            <div className={'div_user'}><Users/></div>
+            <div className={'div_posts'}><Posts/></div>
         </div>
-        <Comments/>
+          <div className={'div_comments'}><Comments/></div>
 
       </div>
   );

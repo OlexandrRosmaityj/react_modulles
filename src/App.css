@@ -1,4 +1,20 @@
 .div{
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    column-gap: 200px;
+
+}
+.div_user{
+    background: silver;
+width: 250px;
+}
+
+.div_posts{
+    background: lightgreen;
+    width: 600px;
+}
+
+.div_comments{
+    background: antiquewhite;
+
 }
