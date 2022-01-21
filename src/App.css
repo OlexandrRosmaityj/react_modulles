@@ -9,5 +9,12 @@ img {
 }
 
 .rocet {
+    width: 100px;
+    border: silver solid 5px;
     padding: 25px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
