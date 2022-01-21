@@ -10,16 +10,15 @@ const Rocets = () => {
             .then(value => value.json())
 
             .then(value => {
-                let filter = value.filter(value => value.launch_year != '2020');
+                let filter = value.filter(value => value.launch_year != '2020')
 
                 setRocets(filter)
             })
 
     }, []);
     return (
-        <div>
-            {rocerts.map(value => <Rocet key={value.flight_number}
-                                         props={value}
+        <div className={'rocets'}>
+            {rocerts.map(value => <Rocet key={value.flight_number} props={value}
             />)
             };
         </div>

@@ -3,8 +3,9 @@ import './App.css';
 import Rocets from "./componnents_/Rocets/Rocets";
 
 function App() {
+
   return (
-      <div className={'rocets'}>
+      <div>
 
 <Rocets/>
 

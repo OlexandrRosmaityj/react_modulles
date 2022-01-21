@@ -5,7 +5,7 @@ const Rocet = ({props: value}) => {
         <div className={'rocet'}>
             {value.mission_name}
             {value.launch_year}
-            <img src={value.links.mission_patch} alt="links.mission_patch"/>
+            <img src={value.links.mission_patch_small} alt="links.mission_patch"/>
 
         </div>
     );
