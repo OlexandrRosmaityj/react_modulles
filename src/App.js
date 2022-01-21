@@ -5,14 +5,25 @@ import Users from "./components/Users/Users";
 import UsersDetalis from "./components/UsersDetalis/UsersDetalis";
 import Posts from "./components/Posts/Posts";
 import style from './App.module.css'
+import {postService} from "./service/post.service";
 
 
 function App() {
     const [user, setUser] = useState(null);
+    const [userId, setUserId] = useState(null);
+    const [posts, setPosts] = useState([]);
+
+
+
+
     const getUser = (user) => {
         setUser(user)
+        setPosts([])
     }
+const  getUserId =(id)=>{
+postService.getByUserId(id).then(value => setPosts([...value]))
 
+}
 
     return (
 
@@ -21,11 +32,11 @@ function App() {
 
                 <Users getUser={getUser}/>
 
-                <UsersDetalis user={user}/>
+                {user&&  <UsersDetalis user={user} getUserId ={getUserId}/>}
 
             </div>
 
-            <Posts/>
+            {!!posts.length&&<Posts posts={posts}/>}
 
         </div>
     );
