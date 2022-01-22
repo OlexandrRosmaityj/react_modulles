@@ -1,45 +1,41 @@
-import {useState} from "react";
-
-
+import React, {useEffect, useState} from 'react';
+import Form from "./components/Form/Form";
 import Users from "./components/Users/Users";
-import UsersDetalis from "./components/UsersDetalis/UsersDetalis";
-import Posts from "./components/Posts/Posts";
-import style from './App.module.css'
-import {postService} from "./service/post.service";
+import {userService} from "./service/user.service";
 
+const App = () => {
+    const [users, setUsers] = useState([]);
+    const [filtredusers, setFiltdredUsers] = useState([]);
 
-function App() {
-    const [user, setUser] = useState(null);
-    const [userId, setUserId] = useState(null);
-    const [posts, setPosts] = useState([]);
+    useEffect(() => {
+        userService.getAll().then(value => {
+            setUsers([...value])
+            setFiltdredUsers([...value])
 
+        })
+    }, [])
 
-
-
-    const getUser = (user) => {
-        setUser(user)
-        setPosts([])
+    const getFilter = (data) => {
+let filterArr =[...users]
+        if (data.name){
+            filterArr = filterArr.filter(user =>user.name.toLowerCase().includes(data.name.toLowerCase()))
+        }
+        if (data.username){
+            filterArr = filterArr.filter(user =>user.username.toLowerCase().includes(data.username.toLowerCase()))
+        }
+        if (data.email){
+            filterArr = filterArr.filter(user =>user.email.toLowerCase().includes(data.email.toLowerCase()))
+        }
+        setFiltdredUsers(filterArr)
     }
-const  getUserId =(id)=>{
-postService.getByUserId(id).then(value => setPosts([...value]))
 
-}
 
     return (
-
         <div>
-            <div className={style.wrap}>
-
-                <Users getUser={getUser}/>
-
-                {user&&  <UsersDetalis user={user} getUserId ={getUserId}/>}
-
-            </div>
-
-            {!!posts.length&&<Posts posts={posts}/>}
-
+            <Form getFilter ={getFilter}/>
+            <Users users ={filtredusers}/>
         </div>
     );
-}
+};
 
 export default App;

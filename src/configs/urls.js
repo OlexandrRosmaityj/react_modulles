@@ -6,7 +6,6 @@ export default baseUrl
 // console.log(baseUrl)
 export const urls = {
     users:'/users',
-    posts:'posts'
 }
 
 
