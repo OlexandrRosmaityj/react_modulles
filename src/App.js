@@ -1,8 +1,11 @@
 import {Navigate, Route, Routes} from "react-router-dom";
 
 import {Layout} from "./components";
-import {PostCommentsPage, PostDetalisPage, PostPage, UserDetalisPage, UsersPage} from "./pages";
+import {PhotosPage, PostCommentsPage, PostDetalisPage, PostPage, UserDetalisPage, UsersPage} from "./pages";
 import {UserPostPage} from "./pages/UserPostPage/UserPostPage";
+import AlbomsPage from "./pages/AlbomsPage/AlbomsPage";
+
+
 
 
 const App = () => {
@@ -11,10 +14,16 @@ const App = () => {
 
         <Routes>
             <Route path={'/'} element={<Layout/>}>
-                <Route index element ={<Navigate to = {'user'}/>}/>
+
+                <Route index element ={<Navigate to = {'users'}/>}/>
+
                 <Route path={'users'} element={<UsersPage/>}>
+
                     <Route path={':id'} element={<UserDetalisPage/>}>
                         <Route path={'posts'} element={<UserPostPage/>}/>
+                    </Route>
+                    <Route path={':id/albums'} element ={<AlbomsPage/>}>
+                        <Route path={':albumId/photos'} element = {<PhotosPage/>}/>
                     </Route>
                 </Route>
 
