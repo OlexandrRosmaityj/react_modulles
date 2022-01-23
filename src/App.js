@@ -1,27 +1,30 @@
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 
 import {Layout} from "./components";
-import {PostPage, UsersPage} from "./pages";
-import UserDetalisPage from "./pages/UserDetalisPage/UserDetalisPage";
-
-
-
-
-
-
+import {PostCommentsPage, PostDetalisPage, PostPage, UserDetalisPage, UsersPage} from "./pages";
+import {UserPostPage} from "./pages/UserPostPage/UserPostPage";
 
 
 const App = () => {
+
     return (
 
-            <Routes>
-                <Route path={'/'} element={<Layout/>}>
-                    <Route path={'users'} element={<UsersPage/>}>
-                        <Route path={':id'} element={<UserDetalisPage/>}/>
+        <Routes>
+            <Route path={'/'} element={<Layout/>}>
+                <Route index element ={<Navigate to = {'user'}/>}/>
+                <Route path={'users'} element={<UsersPage/>}>
+                    <Route path={':id'} element={<UserDetalisPage/>}>
+                        <Route path={'posts'} element={<UserPostPage/>}/>
+                    </Route>
                 </Route>
-                    <Route path={'posts'} element={<PostPage/>}/>
+
+                <Route path={'posts'} element={<PostPage/>}>
+                    <Route path={':id'} element={<PostDetalisPage/>}>
+                        <Route path={'comments'} element={<PostCommentsPage/>}/>
+                    </Route>
                 </Route>
-            </Routes>
+            </Route>
+        </Routes>
 
     );
 };
