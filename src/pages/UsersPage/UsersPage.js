@@ -4,12 +4,9 @@ import {Link,Outlet} from "react-router-dom";
 const UsersPage = () => {
     // const id = 5;
     // const  user = {name:'Petro',age:15}
-const [user, setUser] = useState([]);
 
-useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com")
-then. value()
-},[])
+
+
 
     return (
         <div>
