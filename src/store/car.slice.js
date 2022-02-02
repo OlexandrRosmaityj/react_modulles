@@ -16,7 +16,36 @@ export const getAllCars = createAsyncThunk(
             return rejectWithValue(e.message)
         }
     }
+)
 
+export  const createCar = createAsyncThunk(
+    'carSlice/createcCar',
+    async ({data},{dispatch})=>{
+        try {
+            const newCar = await  carService.create(data);
+            dispatch(addCar({newCar}))
+
+
+        }catch (e) {
+            console.log()
+
+        }
+    }
+
+)
+
+
+export const  deliteCar = createAsyncThunk(
+    'carSlice/deliteCar',
+    async ({id},{dispatch})=>{
+        try {
+            await carService.delete(id)
+            dispatch(deleteCar({id}))
+        }catch (e) {
+            console.log(e)
+
+        }
+    }
 )
 
 const carSlice = createSlice({
@@ -26,14 +55,14 @@ const carSlice = createSlice({
         status:null,
         error:null
     },
+
+
     reducers:{
         addCar:(state, action)=>{
-            state.cars.push({
-                id:new Date().getTime(),
-                ...action.payload.data
-            })
-
+            state.cars.push(...action.payload.data)
         },
+
+
         deleteCar:(state, action)=>{
             state.cars= state.cars.filter(car=>car.id!==action.payload.id)
 
