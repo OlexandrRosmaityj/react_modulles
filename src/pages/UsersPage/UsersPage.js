@@ -10,7 +10,7 @@ const UsersPage = () => {
 
     return (
         <div>
-            <Link to={id.toString()} state ={user}><button>getUserDetalies</button></Link>
+            {/*<Link to={id.toString()} state ={user}><button>getUserDetalies</button></Link>*/}
             <Outlet/>
         </div>
     );
