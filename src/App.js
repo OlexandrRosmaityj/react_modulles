@@ -5,8 +5,8 @@ import {AboutPage, HomePage, NotFoundPage, PostsPage, UsersPage} from "./pages";
 import {Layout} from "./components/Layout/Layout";
 import {SinglePostPage} from "./pages/SinglePostPage/SinglePostPage";
 import {LoginPage} from "./pages/LoginPage/LoginPage";
-import {RequierAuth} from "./hoc/RequierAuth";
 import AuthProvider from "./hoc/AuthProvider";
+import RequiereAuth from "./hoc/RequiereAuth";
 
 const App = () => {
     return (
@@ -17,9 +17,9 @@ const App = () => {
 
                     <Route index element={<HomePage/>}/>
                     <Route path={'users'} element={
-                        <RequierAuth>
+                        <RequiereAuth>
                         <UsersPage/>
-                    </RequierAuth>}/>
+                    </RequiereAuth>}/>
 
                     <Route path={'posts'}  element={<PostsPage/>}>
                         <Route path={':id'}  element={<SinglePostPage/>}/>

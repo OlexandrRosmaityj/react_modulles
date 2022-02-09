@@ -6,10 +6,11 @@ const AuthProvider = ({children})=>{
 
     const [user, setUser] = useState(null);
 
-    const login  = (newUser, cb)
-    setUser(newUser)
-    cb()
+    const login  = (newUser, cb)=> {
 
+        setUser(newUser)
+        cb()
+    }
 
 const logOut = (cb)=>{
     setUser(null)
@@ -19,9 +20,9 @@ const logOut = (cb)=>{
 const  value  = {user, login ,logOut}
 
 return(
-    <Authcontextontext.Provider value={value}>
+    <AuthContext.Provider value={value}>
         {children}
-    </Authcontextontext.Provider>
+    </AuthContext.Provider>
 )
 }
 export default AuthProvider

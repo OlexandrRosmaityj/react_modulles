@@ -1,11 +1,17 @@
 import React from 'react';
-import {Link, NavLink, Outlet} from "react-router-dom";
+import {Link, NavLink, Outlet, useNavigate} from "react-router-dom";
 
 
 import css from "./Layout.module.css"
+import {useAuth} from "../../hooks/useAuth";
 
 const Layout = () => {
+const {logOut} =useAuth();
+const navigate  = useNavigate();
+const logout = () => {
+    logOut(()=> navigate('/',{replace:true}))
 
+}
     return (
 
         <div>
@@ -15,6 +21,7 @@ const Layout = () => {
                 <NavLink to="/posts">Posts</NavLink>
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/notfound">NotFound</NavLink>
+                <button onClick={logout}>LogOut</button>
 
             </div>
 
