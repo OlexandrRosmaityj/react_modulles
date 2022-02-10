@@ -4,7 +4,7 @@ import React from 'react';
 const PostCommentsPage = () => {
     return (
         <div>
-            Comment_det
+            PostCommentsPage
 
         </div>
     );

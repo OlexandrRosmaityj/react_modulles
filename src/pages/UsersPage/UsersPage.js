@@ -1,18 +1,27 @@
 import React, {useEffect, useState} from 'react';
-import {Link,Outlet} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
+import {userService} from "../../service/users.service/users.service";
+import {User} from "../../components/User/User";
+import css from "./users.module.css"
 
 const UsersPage = () => {
-    // const id = 5;
-    // const  user = {name:'Petro',age:15}
+    const [users, setUsers] = useState([]);
+console.log(users)
 
+    useEffect(()=>{
+        userService.getAll().then(value => setUsers(value))
 
-
-
+    },[]);
     return (
-        <div>
-            {/*<Link to={id.toString()} state ={user}><button>getUserDetalies</button></Link>*/}
+        <div className={css.users}>
+            {users.map(user=><User key={user.id} user={user}/>)
+            }
             <Outlet/>
+            <div>
+
+            </div>
         </div>
     );
 };
-export { UsersPage};
+
+export {UsersPage};

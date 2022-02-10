@@ -1,18 +1,18 @@
-import React from 'react';
-import {Outlet, useLocation, useParams} from "react-router-dom";
-
-
-
+import React, {useEffect, useState} from 'react';
+import {useLocation, useParams} from "react-router-dom";
+import {postService} from "../../service/posts.service/posts.service";
 
 const UserDetalisPage = () => {
-    // const params =  useParams();
-    // const  id =params.id
-    //
-    // const {state} = useLocation();
+    const location = useLocation();
+let {state:user} =location
+
     return (
         <div>
-            user_det
-            <Outlet/>
+            <div>{user.id}</div>
+            <div>{user.name}</div>
+            <div>{user.username}</div>
+            <div>{user.email}</div>
+            
         </div>
     );
 };
