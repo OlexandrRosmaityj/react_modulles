@@ -1,0 +1,12 @@
+.users{
+    display: flex;
+    font-size: 20px;
+    background-color: darkgray;
+}
+.users h3{
+    color: #133152;
+    padding-left: 35px;
+}
+.link a{
+    text-decoration: none;
+}

@@ -1,0 +1,10 @@
+.post{
+    display: flex;
+    font-size: 20px;
+    background-color: darkgray;
+
+}
+.post div{
+    color: #133152;
+    padding-left: 35px;
+}
