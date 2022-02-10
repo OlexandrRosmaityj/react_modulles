@@ -1,18 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import css from "./PostDetalis.module.css"
 
 const UserDetalisPage = () => {
+const navigate = useNavigate();
+console.log(navigate)
     const location = useLocation();
-let {state:user} =location
+
+    let {state: user} = location;
+
 
     return (
         <div className={css.detalis}>
-            <div>{user.id}</div>
-            <div>{user.name}</div>
-            <div>{user.username}</div>
-            <div>{user.email}</div>
-            <button>Post</button>
+            <div>ID: {user.id}</div>
+            <div>Name: {user.name}</div>
+            <div>Username: {user.username}</div>
+            <div>Email: {user.email}</div>
+            <button  onClick={()=>navigate(user.id.toString())}>Post</button>
 
         </div>
     );

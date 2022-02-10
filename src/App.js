@@ -10,8 +10,10 @@ const App = () => {
         <Routes>
             <Route path={'/'} element={<Header/>}>
                 <Route path={'/users'} element={<UsersPage/>}>
-                    <Route path={':id'} element={<UserDetalisPage/>}/>
-                    <Route path={':id/post'} element={<UserPostPage/>}/>
+                    <Route path={':id'} element={<UserDetalisPage/>}>
+                        <Route path={':id/post'} element={<UserPostPage/>}/>
+                    </Route>
+
                 </Route>
 
                 <Route path={'/posts'} element={<PostsPage/>}>
