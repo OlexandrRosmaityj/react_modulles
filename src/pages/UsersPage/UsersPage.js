@@ -14,11 +14,11 @@ console.log(users)
     },[]);
     return (
         <div className={css.users}>
-            {users.map(user=><User key={user.id} user={user}/>)
-            }
-            <Outlet/>
-            <div>
+            <div>{users.map(user => <User key={user.id} user={user}/>)
+            }</div>
 
+            <div>
+                <Outlet/>
             </div>
         </div>
     );
