@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import {Link, Outlet, useLocation, useNavigate, useParams} from "react-router-dom";
 import css from "./PostDetalis.module.css"
 
 const UserDetalisPage = () => {
-const navigate = useNavigate();
-console.log(navigate)
+    const navigate = useNavigate();
+    console.log(navigate)
     const location = useLocation();
 
     let {state: user} = location;
@@ -16,7 +16,10 @@ console.log(navigate)
             <div>Name: {user.name}</div>
             <div>Username: {user.username}</div>
             <div>Email: {user.email}</div>
-            <button  onClick={()=>navigate(user.id.toString())}>Post</button>
+
+            <Link to={'post'}>
+                <button onClick={() => navigate(user.id.toString())}>Post</button>
+            </Link>
 
         </div>
     );

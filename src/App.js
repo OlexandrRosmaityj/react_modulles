@@ -11,7 +11,7 @@ const App = () => {
             <Route path={'/'} element={<Header/>}>
                 <Route path={'/users'} element={<UsersPage/>}>
                     <Route path={':id'} element={<UserDetalisPage/>}>
-                        <Route path={':id/post'} element={<UserPostPage/>}/>
+                        <Route path={'post'} element={<UserPostPage/>}/>
                     </Route>
 
                 </Route>
